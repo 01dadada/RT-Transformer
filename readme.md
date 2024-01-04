@@ -40,13 +40,13 @@ Run test.py by `python ./test.py `
 
 You can follow the [jupyter notebook](./QuickStart.ipynb) to predict rentention time in your own data.
 
-We provide easily accessible web pages and host them on the [huggingface](https://huggingface.co/spaces/junxue/RT-Transformer).
+We provide easily accessible web pages and host them on the [huggingface](https://huggingface.co/spaces/Xue-Jun/RT-Transformer).
 
 ## Transfer Learn to Your Own Dataset
 
 - Prepare your dataset as a csv file which has "InChI" and "RT" columns.
 - Rename it as "data.csv" at the root directory.
-- download the pre-trained model from [huggingface](https://huggingface.co/spaces/junxue/RT-Transformer/blob/main/best_state_dict.pth).
+- download the pre-trained model from [huggingface](https://huggingface.co/spaces/Xue-Jun/RT-Transformer/tree/main).
 - Run transfer.py
 
 You can also follow this [jupyter notebook](./) to fine-tuning the model.
