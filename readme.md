@@ -1,43 +1,74 @@
+# RT-Tranformer
+The RT-Tranformer combine the fingerprint and the molecular graph data and predict retention time as the output. It's architecture is showed as following:
+![model](figs/model.svg)
+
+# Motivation
+Motivation:Liquid chromatography retention times prediction can assist in metabolite identification, which is a critical
+task and challenge in non-targeted metabolomics. However, different chromatographic conditions may result in different
+retention times for the same metabolite. Current retention time prediction methods lack sufficient scalability to transfer
+from one specific chromatographic method to another
 
 
-[//]: # (# 文件说明)
+# Requirements
+- Python 3.9
+- torch
+- rdkit-pypi
+- torch-scatter
+- torch-sparse 
+- torch-cluster 
+- torch_geometric
+- scikit-learn
+- tqdm
+- jupyter
+- notebook
+- pandas
+- networkx
+- gradio
 
-[//]: # (    load_data.py SMRT数据集dataset)
+# Datasets
+The SMRT dataset is collect from [this paper](https://doi.org/10.1038/s41467-019-13680-7)
 
-[//]: # (    model.py                        模型核心文件)
+All data and code are provided on [Google Drive]().
+# Usage
 
-[//]: # (    train.py                        核心文件，生成预训练模型)
+## Validation and Test
 
-[//]: # (    test.py                         测试预训练模型)
-
-[//]: # (    test_save.py                    测试预训练模型并保存结果)
-
-[//]: # (    transferFinal.py                对5个迁移数据集进行迁移)
-
-[//]: # (    test_transfer_all.py            对所有迁移数据集进行迁移)
-
-[//]: # (    tranferDataset.py               迁移数据集)
-
-[//]: # (    windows_transfer.py             对5个迁移数据集进行迁移&#40;windows&#41;)
-
-[//]: # (    predict_selections.py           对从SMRT数据集的测试集选出的100的分子，搜索出的所有结构进行保留时间预测)
-
-[//]: # (    predict_for_selections.py       对从SMRT数据集的测试集选出的100的分子进行保留时间预测)
+Run test.py by `python ./test.py `
 
 
-# environment
-    cuda=11.3.1
-    python=3.9
+## Predict Rentention Time
 
-    pip3 install torch==1.11.0 torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113
+You can follow the [jupyter notebook](./QuickStart.ipynb) to predict rentention time in your own data.
 
-    pip install torch-scatter==2.0.9 torch-sparse==0.6.14 torch-cluster==1.6.0  torch-geometric==2.0.4 -f https://data.pyg.org/whl/torch-1.12.0+cu113.html
-    
-    pip install matplotlib networkx torchmetrics seaborn 
-    
-    pip install rdkit==2022.9.1
+We provide easily accessible web pages and host them on the [huggingface](https://huggingface.co/spaces/junxue/RT-Transformer).
 
-    
+## Transfer Learn to Your Own Dataset
+
+- Prepare your dataset as a csv file which has "InChI" and "RT" columns.
+- Rename it as "data.csv" at the root directory.
+- download the pre-trained model from [huggingface](https://huggingface.co/spaces/junxue/RT-Transformer/blob/main/best_state_dict.pth).
+- Run transfer.py
+
+You can also follow this [jupyter notebook](./) to fine-tuning the model.
+
+## Retrain the Model
+- Prepare your dataset as a csv file which has "InChI" and "RT" columns.
+- Rename it as "data.csv" at the root directory.
+- Run retrain.py
+
+# Cite
+
+If you make use of the code/experiment in your work, please cite our paper (Bibtex below).
+
+    @article{xue2023rt,
+    title={RT-Tranformer: Retention Time Prediction for Metabolite Annotation to Assist in Metabolite Identification},
+    author={Jun Xue and Bingyi Wang and Hongchao Ji and Weihua Li },
+    year={2023}
+    }
+
+
+
+
 
 
     
