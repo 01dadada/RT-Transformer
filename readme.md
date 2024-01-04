@@ -27,8 +27,8 @@ from one specific chromatographic method to another
 
 # Datasets
 The SMRT dataset is collect from [this paper](https://doi.org/10.1038/s41467-019-13680-7)
+Datasets for transfer learning is download from [PredRet](http://predret.org/)
 
-All data and code are provided on [Google Drive]().
 # Usage
 
 ## Validation and Test
@@ -54,17 +54,22 @@ You can also follow this [jupyter notebook](./) to fine-tuning the model.
 ## Retrain the Model
 - Prepare your dataset as a csv file which has "InChI" and "RT" columns.
 - Rename it as "data.csv" at the root directory.
-- Run retrain.py
+- Run train.py
+
+## Pretrained Model Files
+
+best_state_download_dict.pth The Best model of RT-Transformer train from retained data.
+best_state_dict.pth The Best model of RT-Transformer train from full data.
 
 # Cite
 
 If you make use of the code/experiment in your work, please cite our paper (Bibtex below).
 
-    @article{xue2023rt,
-    title={RT-Tranformer: Retention Time Prediction for Metabolite Annotation to Assist in Metabolite Identification},
-    author={Jun Xue and Bingyi Wang and Hongchao Ji and Weihua Li },
-    year={2023}
-    }
+@article{xue2023rt,
+title={RT-Tranformer: Retention Time Prediction for Metabolite Annotation to Assist in Metabolite Identification},
+author={Jun Xue and Bingyi Wang and Hongchao Ji and Weihua Li },
+year={2023}
+}
 
 
 
