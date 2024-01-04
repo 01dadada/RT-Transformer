@@ -10,7 +10,7 @@ import os
 import pandas as pd
 from tqdm import tqdm
 
-threshold = 60
+threshold = 52.80*2
 torch.manual_seed(1234)
 dataset = SMRTDatasetRetained('./SMRT_Retain')
 train_len = int(dataset.__len__() * 0.9)
@@ -54,8 +54,3 @@ for data in selected:
     )
     frame = frame.append(series,ignore_index=True)
 frame.to_csv('results/100molecules_result.csv')
-
-
-
-
-
